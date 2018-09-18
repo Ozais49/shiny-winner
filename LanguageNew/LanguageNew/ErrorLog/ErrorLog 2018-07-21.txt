@@ -1,0 +1,42 @@
+2018-07-21 15:06:05.6806 
+ Error 
+ Exception The parameterized query '(@Username nvarchar(4000),@Password nvarchar(4000))Select dbo.f_' expects the parameter '@Username', which was not supplied. 
+ Message An error occured when validating user. 
+ <no type>.lambda_method => LoginController.Index => User.validateUser 
+
+2018-07-21 15:06:05.6806 
+ Error 
+ Exception The parameterized query '(@Username nvarchar(4000),@Password nvarchar(4000))Select dbo.f_' expects the parameter '@Username', which was not supplied. 
+ Message An error occured when validating user. 
+ <no type>.lambda_method => LoginController.Index => User.validateUser 
+
+2018-07-21 15:06:05.6976 
+ Error 
+ Exception The parameterized query '(@Username nvarchar(4000),@Password nvarchar(4000))Select dbo.f_' expects the parameter '@Username', which was not supplied. 
+ Message An error occured when validating user. 
+ <no type>.lambda_method => LoginController.Index => User.validateUser 
+
+2018-07-21 16:20:20.6828 
+ Error 
+ Exception Cannot find either column "dbo" or the user-defined function or aggregate "dbo.f_dValidateUser", or the name is ambiguous. 
+ Message An error occured when validating user. 
+ <no type>.lambda_method => LoginController.Index => User.validateUser 
+
+2018-07-21 16:21:11.9681 
+ Error 
+ Exception Cannot find either column "dbo" or the user-defined function or aggregate "dbo.f_dValidateUser", or the name is ambiguous. 
+ Message An error occured when validating user. 
+ <no type>.lambda_method => LoginController.Index => User.validateUser 
+
+2018-07-21 16:29:47.8600 
+ Error 
+ Exception Cannot find either column "dbo" or the user-defined function or aggregate "dbo.f_dValidateUser", or the name is ambiguous. 
+ Message An error occured when validating user. 
+ <no type>.lambda_method => LoginController.Index => User.validateUser 
+
+2018-07-21 16:30:22.4527 
+ Error 
+ Exception Cannot find either column "dbo" or the user-defined function or aggregate "dbo.f_dValidateUser", or the name is ambiguous. 
+ Message An error occured when validating user. 
+ <no type>.lambda_method => LoginController.Index => User.validateUser 
+

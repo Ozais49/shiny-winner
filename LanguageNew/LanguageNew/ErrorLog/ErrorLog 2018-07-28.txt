@@ -1,0 +1,6 @@
+2018-07-28 11:57:53.2578 
+ Error 
+ Exception Procedure or function 's_LoginSuccess' expects parameter '@Useragent', which was not supplied. 
+ Message Error occured when inserting LoginSucess 
+ <no type>.lambda_method => LoginController.Index => User.insertLoginSuccess 
+

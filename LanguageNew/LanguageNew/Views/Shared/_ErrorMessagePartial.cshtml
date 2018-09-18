@@ -1,0 +1,23 @@
+﻿<div class="error">
+    @if (TempData["Errors"] != null)
+    {
+        <div class="card card-danger">
+            <div class="card-header">
+                <div class="header-block">
+                    <p class="title">Error</p>
+                </div>
+            </div>
+            <div class="card-block">
+                @foreach (string s in (List<string>)TempData["Errors"])
+                {
+                    @s<br />
+                }
+            </div>
+        </div>
+
+    }
+</div>
+
+
+   
+<!-- /.col-xl-4 -->

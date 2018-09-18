@@ -1,0 +1,88 @@
+﻿@model LanguageNew.ViewModels.UserViewModel
+@{ 
+    Layout = null;
+}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="~/Content/appcss/vendor.css">
+   @* <link rel="stylesheet" href="~/Content/appcss/app.css">*@
+    <!-- Theme initialization -->
+    <script>
+        var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+            {};
+        var themeName = themeSettings.themeName || '';
+        if (themeName) {
+            document.write('<link rel="stylesheet" id="theme-style" href="/Content/appcss/app-' + themeName + '.css">');
+        }
+        else {
+            document.write('<link rel="stylesheet" id="theme-style" href="/Content/appcss/app.css">');
+        }
+    </script>
+</head>
+<body>
+  
+    <div class="auth">
+        <div class="auth-container">
+            <div class="card">
+                <header class="auth-header">
+                    <h1 class="auth-title">
+                        <div class="logo">
+                            <span class="l l1"></span>
+                            <span class="l l2"></span>
+                            <span class="l l3"></span>
+                            <span class="l l4"></span>
+                            <span class="l l5"></span>
+                        </div> My App
+                    </h1>
+                </header>
+                <br/>
+                @Html.Partial("_ErrorMessagePartial")
+                <div class="auth-content">
+                    <p class="text-center">LOGIN TO CONTINUE</p>
+                    @using (Html.BeginForm("index","Login",FormMethod.Post,new { @id="login-form",@novalidate=""}))
+                    {
+                  @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="Username">Username</label>
+                           @Html.TextBoxFor(x=>x.Username,new { @class = "form-control underlined",@placeholder="Your email address",@required="required" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control underlined", @placeholder = "Your password", @required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <label for="RememberMe">
+                                <input class="checkbox" id="remember" type="checkbox" name="RememberMe">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-block btn-primary">Login</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Reference block for JS -->
+    <div class="ref" id="ref">
+        <div class="color-primary"></div>
+        <div class="chart">
+            <div class="color-primary"></div>
+            <div class="color-secondary"></div>
+        </div>
+    </div>
+   
+    <script src="~/Scripts/appjs/vendor.js"></script>
+    <script src="~/Scripts/appjs/app.js"></script>
+</body>
+</html>

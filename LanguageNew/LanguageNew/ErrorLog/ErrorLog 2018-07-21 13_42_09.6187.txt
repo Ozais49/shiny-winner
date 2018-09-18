@@ -1,0 +1,1 @@
+2018-07-21 13:42:09.6187 Error An error occured when validating user.  The parameterized query '(@Username nvarchar(4000),@Password nvarchar(4000))Select dbo.f_' expects the parameter '@Username', which was not supplied.

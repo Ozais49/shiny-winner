@@ -1,0 +1,30 @@
+2018-07-25 19:40:23.9979 
+ Error 
+ Exception Could not find stored procedure 's_LoginSuccess'. 
+ Message Error occured when inserting LoginSucess 
+ <no type>.lambda_method => LoginController.Index => User.insertLoginSuccess 
+
+2018-07-25 20:01:25.1246 
+ Error 
+ Exception Could not find stored procedure 's_LoginSuccess'. 
+ Message Error occured when inserting LoginSucess 
+ <no type>.lambda_method => LoginController.Index => User.insertLoginSuccess 
+
+2018-07-25 20:02:23.4800 
+ Error 
+ Exception Could not find stored procedure 's_LoginSuccess'. 
+ Message Error occured when inserting LoginSucess 
+ <no type>.lambda_method => LoginController.Index => User.insertLoginSuccess 
+
+2018-07-25 20:04:16.2546 
+ Error 
+ Exception Could not find stored procedure 's_LoginSuccess'. 
+ Message Error occured when inserting LoginSucess 
+ <no type>.lambda_method => LoginController.Index => User.insertLoginSuccess 
+
+2018-07-25 21:41:02.9477 
+ Error 
+ Exception Procedure or function 's_LoginSuccess' expects parameter '@Useragent', which was not supplied. 
+ Message Error occured when inserting LoginSucess 
+ <no type>.lambda_method => LoginController.Index => User.insertLoginSuccess 
+
