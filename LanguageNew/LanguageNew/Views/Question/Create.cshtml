@@ -7,6 +7,10 @@
     list.Add(new SelectListItem() { Text = "Option2", Value = "2" });
     list.Add(new SelectListItem() { Text = "Option3", Value = "3" });
     list.Add(new SelectListItem() { Text = "Option4", Value = "4" });
+
+    List<SelectListItem> category = new List<SelectListItem>();
+    category.Add(new SelectListItem() { Text = "Reading", Value = "1" });
+    category.Add(new SelectListItem() { Text = "Listening", Value = "2" });
 }
 <style>
     textarea {
@@ -27,6 +31,20 @@
 @using (Html.BeginForm("Create", "Question", FormMethod.Post, new { enctype = "multipart/form-data", @autocomplete = "off" }))
 {
     <div class="form-horizontal">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.Category, new { @class = "control-label col-md-offset-1 col-md-1" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(x => x.Category, category,new { @class = "form-control", @required = "True" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.Type, new { @class = "control-label col-md-1" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(x => x.Type, new { @class = "form-control", @required = "True" })
+                </div>
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Question, new { @class = "control-label col-md-2 " })
             <div class="col-md-10">
@@ -133,7 +151,7 @@
                     //    console.log(response.blob());
                     //});
                    // debugger;
-                    document.getElementById('image').value = yts;
+                    //document.getElementById('image').value = yts;
                     //if (yts.toString().includes('base64')) {
                     //   var z= yts.toString().lastIndexOf('base64');
                     //   var x = yts.toString().substring(z + ('base64,').length, yts.toString().length);

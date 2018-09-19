@@ -11,15 +11,14 @@ using NLog;
 
 namespace LanguageNew.DAL
 {
-    public class Question : IRepo<Questions>
+    public class Question : IQuestion
     {
         public bool Add(Questions entity)
         {
             SqlConnection con = new SqlConnection(connection.ConnectionString);
-           
+            int i = 0;
             try
             {
-
                 using (con)
                 {
                     using (SqlCommand cmd = new SqlCommand())
@@ -27,29 +26,40 @@ namespace LanguageNew.DAL
                         cmd.Connection = con;
                         cmd.CommandType = CommandType.Text;
                         cmd.CommandText = @"INSERT INTO Questions
-                                            ( Question , Option1,Option2 , Option3 , Option4 , Answer , Status , Category , Type  )
+                                            ( Question , Option1,Option2 , Option3 , Option4 , Answer , Status , Category , Type ,Image )
                                             VALUES
-                                            (@Question,@Option1,@Option2,@Option3,@Option4,@Answer,@Status,@Category,@Type)
-";
-                      
+                                            (@Question,@Option1,@Option2,@Option3,@Option4,@Answer,@Status,@Category,@Type,@Image)";
+                        cmd.Parameters.AddWithValue("@Question",entity.Question);
+                        cmd.Parameters.AddWithValue("@Option1", entity.Option1);
+                        cmd.Parameters.AddWithValue("@Option2", entity.Option2);
+                        cmd.Parameters.AddWithValue("@Option3", entity.Option3);
+                        cmd.Parameters.AddWithValue("@Option4", entity.Option4);
+                        cmd.Parameters.AddWithValue("@Answer", entity.Answer);
+                        cmd.Parameters.AddWithValue("@Status", entity.Status);
+                        cmd.Parameters.AddWithValue("@Category", entity.Category);
+                        cmd.Parameters.AddWithValue("@Type", entity.Type);
+                        cmd.Parameters.AddWithValue("@Image", entity.Image);
                         if (con.State != ConnectionState.Open)
                             con.Open();
-                      
-                       
+
+                        i = cmd.ExecuteNonQuery();
+
                         if (con.State != ConnectionState.Closed)
                             con.Close();
 
+                        if (i == 1)
+                            return true;
+                        else
+                            return false;
+
                     }
                 }
-                return false;
             }
             catch (Exception ex)
             {
                 if (con.State != ConnectionState.Closed)
                     con.Close();
-
-                return false;
-
+                throw ex;
             }
         }
 
@@ -135,6 +145,11 @@ namespace LanguageNew.DAL
                 logger.Error(ex, "An error occured fetching Questions.");
                 return QuestionList;
             }
+        }
+
+        public string GetImage(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Update(Questions Entity)
