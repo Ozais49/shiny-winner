@@ -1,8 +1,6 @@
 /LanguageNew/*.sln
 /LanguageNew/.vs/*
 /LanguageNew/LanguageNew/obj/*
-/LanguageNew/LanguageNew/LanguageNew.csproj
-/LanguageNew/LanguageNew/LanguageNew.csproj
 /LanguageNew/LanguageNew/LanguageNew.csproj.user
 
 ## Ignore Visual Studio temporary files, build results, and
