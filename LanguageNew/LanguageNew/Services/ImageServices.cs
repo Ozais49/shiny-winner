@@ -15,11 +15,11 @@ namespace LanguageNew.Services
             Container.Append("<img src=\"data:image/");
             Container.Append(Path.GetExtension(imgFile.FileName).Replace(".", ""));
             Container.Append(";base64,");
-        //    Container
+            //    Container
 
 
 
-                return "";
-                       
+            return "";
+        }
     }
 }

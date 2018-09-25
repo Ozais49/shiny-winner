@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=4.55.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\packages\CompareNETObjects.4.55.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -179,12 +182,14 @@
     <Compile Include="Repo\IQuestion.cs" />
     <Compile Include="Repo\IRepo.cs" />
     <Compile Include="Repo\IUser.cs" />
+    <Compile Include="Services\ImageServices.cs" />
     <Compile Include="Utilities\HelperUtility.cs" />
     <Compile Include="Utilities\SQLHelper.cs" />
     <Compile Include="ViewModels\QuestionViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\Compare-NET-Objects-Help.txt" />
     <Content Include="Content\appassets\demo.png" />
     <Content Include="Content\appassets\faces\3.jpg" />
     <Content Include="Content\appassets\faces\4.jpg" />

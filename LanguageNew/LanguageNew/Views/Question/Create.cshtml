@@ -87,14 +87,14 @@
             </div>
             @Html.Label("Browse", new { @class = "control-label col-md-1" })
             <div class="col-md-5">
-                <input type="file" id="browse" name="image" accept="image/*" onchange="readURL(this)" />
+                <input type="file" id="browse" name="Photo" accept="image/*" onchange="readURL(this)" />
                 
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-6">
                 <div class="col-md-1" id="divImg">
-                    <img src="" id="Photo" alt="Question Preview" class="img img-rounded" style="max-width: 200px;" />
+                    <img src="" id="img" alt="Question Preview" class="img img-rounded" style="max-width: 200px;" />
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
             $("#divImg").hover(
                 //Mouse in
               function () {
-                  if (!$('#Photo').attr('src') == '')
+                  if (!$('#img').attr('src') == '')
                       $(this).append($('<span class="btnX" id="btnImgDis" onClick="removeImage();" style="color:red;">X</span>'));
               },
               //mouse out
@@ -122,7 +122,7 @@
         });
 
         function removeImage() {
-            $('#Photo').attr('src', '');
+            $('#img').attr('src', '');
             $('#image').val('');
             $('#browse').val('');
 
@@ -138,7 +138,7 @@
                     yts = e.target.result;
                    // $('#Photo').attr('src', e.target.result);
 
-                    document.getElementById('Photo').src= yts;
+                    document.getElementById('img').src= yts;
                     //fetch(yts)
                     //.then(function (response) {
                     //    return response.blob();
@@ -163,7 +163,7 @@
             }
             else
             {
-                document.getElementById('Photo').src = "#";
+                document.getElementById('img').src = "#";
             }
 
         }

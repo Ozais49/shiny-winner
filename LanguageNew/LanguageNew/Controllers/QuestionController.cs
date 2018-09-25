@@ -71,5 +71,29 @@ namespace LanguageNew.Controllers
 
             return View(model);
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult EditQuestion(string Id)
+        {
+
+            if (string.IsNullOrEmpty(Id))
+                return RedirectToAction("Index", "Question");
+
+            var model = _Question.Get(Id);
+            if (model is null)
+                return RedirectToAction("Index", "Question");
+            QuestionViewModel viewmodel = new QuestionViewModel();
+            
+
+
+            return View(model);
+
+        }
+
+        public ActionResult EditQuestion(QuestionViewModel model)
+        {
+            return View();
+        }
     }
 }

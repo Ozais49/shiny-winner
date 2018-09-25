@@ -8,6 +8,6 @@ namespace LanguageNew.ViewModels
 {
     public class QuestionViewModel:Questions
     {
-        public HttpPostedFileBase Image { get; set; }
+        public HttpPostedFileBase Photo { get; set; }
     }
 }
