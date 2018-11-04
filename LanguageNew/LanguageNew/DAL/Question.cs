@@ -29,7 +29,7 @@ namespace LanguageNew.DAL
                                             ( Question , Option1,Option2 , Option3 , Option4 , Answer , Status , Category , Type ,Image )
                                             VALUES
                                             (@Question,@Option1,@Option2,@Option3,@Option4,@Answer,@Status,@Category,@Type,@Image)";
-                        cmd.Parameters.AddWithValue("@Question",entity.Question);
+                        cmd.Parameters.AddWithValue("@Question", entity.Question);
                         cmd.Parameters.AddWithValue("@Option1", entity.Option1);
                         cmd.Parameters.AddWithValue("@Option2", entity.Option2);
                         cmd.Parameters.AddWithValue("@Option3", entity.Option3);
@@ -76,7 +76,7 @@ namespace LanguageNew.DAL
             try
             {
 
-                using ( con )
+                using (con)
                 {
                     using (SqlCommand cmd = new SqlCommand())
                     {
@@ -154,7 +154,61 @@ namespace LanguageNew.DAL
 
         public bool Update(Questions Entity)
         {
-            throw new NotImplementedException();
+            SqlConnection con = new SqlConnection(connection.ConnectionString);
+            int i = 0;
+            try
+            {
+                using (con)
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = @"UPDATE Questions
+                                                SET 
+                                                Question =@Question ,
+                                                    Option1=@Option1,
+                                                    Option2=@Option2,
+                                                    Option3=@Option3,
+                                                    Option4=@Option4,
+                                                    Answer=@Answer ,
+                                                    Status=@Status ,
+                                                    Category=@Category ,
+                                                    Type=@Type ,
+                                                    Image =@Image WHERE Id=@Id";
+                        cmd.Parameters.AddWithValue("@Id", Entity.Id);
+                        cmd.Parameters.AddWithValue("@Question", Entity.Question);
+                        cmd.Parameters.AddWithValue("@Option1", Entity.Option1);
+                        cmd.Parameters.AddWithValue("@Option2", Entity.Option2);
+                        cmd.Parameters.AddWithValue("@Option3", Entity.Option3);
+                        cmd.Parameters.AddWithValue("@Option4", Entity.Option4);
+                        cmd.Parameters.AddWithValue("@Answer", Entity.Answer);
+                        cmd.Parameters.AddWithValue("@Status", Entity.Status);
+                        cmd.Parameters.AddWithValue("@Category", Entity.Category);
+                        cmd.Parameters.AddWithValue("@Type", Entity.Type);
+                        cmd.Parameters.AddWithValue("@Image", Entity.Image);
+                        if (con.State != ConnectionState.Open)
+                            con.Open();
+
+                        i = cmd.ExecuteNonQuery();
+
+                        if (con.State != ConnectionState.Closed)
+                            con.Close();
+
+                        if (i == 1)
+                            return true;
+                        else
+                            return false;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+                throw ex;
+            }
         }
     }
 }
